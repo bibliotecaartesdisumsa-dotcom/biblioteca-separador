@@ -235,7 +235,7 @@ h1, h2, h3 {
     font-weight: 800;
     line-height: 1.2;
     letter-spacing: -1.5px;
-    color: var(--gris-oscuro);
+    color: #E5E7EB;
     margin-bottom: 1.2rem;
 }
 
@@ -257,7 +257,7 @@ h1, h2, h3 {
 
 .hero-text {
     font-size: 1rem;
-    color: var(--gris-medio);
+    color: var(--gris-claro);
     line-height: 1.6;
     margin-bottom: 1.8rem;
 }
@@ -315,7 +315,7 @@ h1, h2, h3 {
 
 .btn-secondary {
     background: transparent;
-    color: var(--gris-oscuro);
+    color: #E5E7EB;
     padding: 0.8rem 1.8rem;
     border-radius: 50px;
     text-decoration: none;
