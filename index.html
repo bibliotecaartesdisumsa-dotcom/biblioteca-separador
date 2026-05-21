@@ -3,186 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Biblioteca ART&DIS | UMSA - Recursos académicos</title>
+    <title>Biblioteca Carlos Salazar Mostajo | Artes Plásticas y Diseño Gráfico - UMSA</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <!-- NAVBAR MODERNA -->
+
+    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-palette"></i>
-                </div>
+                <div class="logo-icon"><i class="fas fa-palette"></i></div>
                 <div class="logo-text">
-                    <span class="logo-bold">ART&DIS</span>
-                    <span class="logo-light">UMSA</span>
+                    <span class="logo-bold">BIBLIOTECA</span>
+                    <span class="logo-light">Carlos Salazar Mostajo</span>
                 </div>
             </div>
             <div class="nav-links">
+                <a href="#inicio">Inicio</a>
                 <a href="#recursos">Recursos</a>
-                <a href="#programas">Programas</a>
-                <a href="#galeria">Carreras</a>
+                <a href="#colecciones">Colecciones</a>
+                <a href="#servicios">Servicios</a>
                 <a href="#contacto">Contacto</a>
             </div>
-            <a href="#contacto" class="btn-nav">Let's Talk →</a>
-            <div class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
-            </div>
+            <a href="#contacto" class="btn-nav">WhatsApp →</a>
+            <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
         </div>
     </nav>
 
-    <!-- HERO SECTION - Estilo Entlify -->
-    <section class="hero">
+    <!-- HERO PRINCIPAL - IMPACTANTE -->
+    <section class="hero" id="inicio">
         <div class="hero-container">
             <div class="hero-left">
+                <div class="hero-badge">Universidad Mayor de San Andrés</div>
                 <h1 class="hero-title">
-                    Recursos académicos <br>
-                    <span class="highlight">para tu formación</span>
+                    Conocimiento que <br>
+                    <span class="highlight">transforma</span>
                 </h1>
                 <p class="hero-description">
-                    Biblioteca Especializada "Carlos Salazar Mostajo" · Acceso libre y gratuito a miles de recursos científicos, académicos y culturales para estudiantes de Artes Plásticas, Diseño Gráfico y Música.
+                    Biblioteca Especializada en Artes Plásticas y Diseño Gráfico. Acceso libre a miles de recursos científicos, académicos y culturales.
                 </p>
+                <div class="hero-stats">
+                    <div class="stat"><span>2,550+</span> Libros</div>
+                    <div class="stat"><span>250+</span> Tesis</div>
+                    <div class="stat"><span>7,000+</span> Editoriales</div>
+                    <div class="stat"><span>5</span> Programas internacionales</div>
+                </div>
                 <div class="hero-buttons">
                     <a href="#recursos" class="btn-primary">Explorar recursos →</a>
-                    <a href="#galeria" class="btn-secondary">Ver galería</a>
-                </div>
-                <div class="trust-badge">
-                    <i class="fas fa-check-circle"></i>
-                    <span>+7000 editoriales · Acceso institucional · 5 programas internacionales</span>
+                    <a href="#servicios" class="btn-secondary">Nuestros servicios</a>
                 </div>
             </div>
             <div class="hero-right">
-                <div class="hero-image">
-                    <img src="https://placehold.co/500x500/F05A2B/FFFFFF?text=ARTES+%26+DISE%C3%91O" alt="Artes y Diseño">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN WHY TEAMS (inspirado en Entlify) -->
-    <section class="why-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">¿POR QUÉ USAR NUESTROS SERVICIOS?</span>
-                <h2>Más que una biblioteca,<br>un ecosistema de aprendizaje</h2>
-                <p>Trabajamos para que estudiantes y docentes tengan acceso a la mejor información académica</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-rocket"></i></div>
-                    <h3>Acceso inmediato</h3>
-                    <p>Plataformas disponibles 24/7 con ingreso directo desde tu cuenta institucional</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-globe-americas"></i></div>
-                    <h3>Recursos globales</h3>
-                    <p>Más de 7000 editoriales del mundo + programas HINARI, AGORA, OARE, ARDI, GOALI</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
-                    <h3>Apoyo académico</h3>
-                    <p>Diseñado específicamente para estudiantes de Artes, Diseño y Música</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- RECURSOS PRINCIPALES -->
-    <div class="container" id="recursos">
-        <div class="section-header">
-            <span class="section-tag">RECURSOS DIGITALES</span>
-            <h2>Plataformas de acceso gratuito</h2>
-            <p>Explora todo el contenido científico y académico</p>
-        </div>
-
-        <div class="resources-grid">
-            <div class="resource-card">
-                <div class="resource-icon"><i class="fas fa-landmark"></i></div>
-                <h3>SUI-UMSA</h3>
-                <p>Sistema de Unidades de Información</p>
-                <a href="https://biblioadmin.umsa.bo" target="_blank" class="resource-link">Acceder →</a>
-            </div>
-            <div class="resource-card">
-                <div class="resource-icon"><i class="fas fa-archive"></i></div>
-                <h3>Repositorio Institucional</h3>
-                <p>Producción científica UMSA</p>
-                <a href="https://repositorio.umsa.bo" target="_blank" class="resource-link">Acceder →</a>
-            </div>
-            <div class="resource-card">
-                <div class="resource-icon"><i class="fas fa-globe-americas"></i></div>
-                <h3>Scielo Bolivia</h3>
-                <p>Libros, journals y revistas científicas</p>
-                <a href="http://www.scielo.org.bo/scielo.php" target="_blank" class="resource-link">Acceder →</a>
-            </div>
-            <div class="resource-card featured">
-                <div class="resource-icon"><i class="fas fa-palette"></i></div>
-                <h3>Biblioteca Digital ART&DIS</h3>
-                <p>Sistema para formación académica</p>
-                <a href="https://bibliotecaartdisumsa-production.up.railway.app/" target="_blank" class="resource-link">Acceder →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- PROGRAMAS INTERNACIONALES -->
-    <section class="programs-section" id="programas">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">PROGRAMAS INTERNACIONALES</span>
-                <h2>Acceso global al conocimiento</h2>
-                <p>Conjunto de programas de acceso gratuito para investigación</p>
-            </div>
-            <div class="programs-grid">
-                <div class="program-item"><i class="fas fa-heartbeat"></i><span>HINARI</span><small>Salud</small></div>
-                <div class="program-item"><i class="fas fa-seedling"></i><span>AGORA</span><small>Agricultura</small></div>
-                <div class="program-item"><i class="fas fa-leaf"></i><span>OARE</span><small>Medio Ambiente</small></div>
-                <div class="program-item"><i class="fas fa-flask"></i><span>ARDI</span><small>Desarrollo</small></div>
-                <div class="program-item"><i class="fas fa-gavel"></i><span>GOALI</span><small>Jurídicas</small></div>
-            </div>
-            <div class="highlight-banner">
-                <i class="fas fa-database"></i>
-                <p><strong>+7,000 editoriales</strong> · Acceso libre y gratuito a producción académica y científica de todo el mundo</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- GALERÍA DE CARRERAS -->
-    <section class="gallery-section" id="galeria">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">NUESTRAS CARRERAS</span>
-                <h2>Artes Plásticas · Diseño Gráfico · Música</h2>
-                <p>Formación artística con excelencia académica</p>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-card">
-                    <img src="https://placehold.co/600x400/F05A2B/FFFFFF?text=Artes+Pl%C3%A1sticas" alt="Artes Plásticas">
-                    <div class="gallery-info">
-                        <h3>Artes Plásticas</h3>
-                        <p>Pintura, escultura, grabado y más</p>
-                    </div>
-                </div>
-                <div class="gallery-card">
-                    <img src="https://placehold.co/600x400/FF8A4C/FFFFFF?text=Dise%C3%B1o+Gr%C3%A1fico" alt="Diseño Gráfico">
-                    <div class="gallery-info">
-                        <h3>Diseño Gráfico</h3>
-                        <p>Comunicación visual, branding, editorial</p>
-                    </div>
-                </div>
-                <div class="gallery-card">
-                    <img src="https://placehold.co/600x400/F05A2B/FFFFFF?text=M%C3%BAsica" alt="Música">
-                    <div class="gallery-info">
-                        <h3>Música</h3>
-                        <p>Formación instrumental y teórica</p>
+                <div class="hero-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Acceso institucional</h3>
+                    <p>Ingresa con tu cuenta UMSA a todas las plataformas</p>
+                    <div class="hero-card-icons">
+                        <i class="fas fa-database"></i>
+                        <i class="fas fa-book-open"></i>
+                        <i class="fas fa-globe-americas"></i>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACTO Y HORARIO -->
+    <!-- PLATAFORMAS DESTACADAS (LO MÁS IMPORTANTE PRIMERO) -->
+    <section class="platforms-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">ACCESO DIRECTO</span>
+                <h2>Plataformas digitales</h2>
+                <p>Recursos gratuitos con tu cuenta institucional</p>
+            </div>
+            <div class="platforms-grid">
+                <div class="platform-card">
+                    <i class="fas fa-globe-americas"></i>
+                    <h3>Scielo</h3>
+                    <p>Libros, journals y revistas científicas a texto completo</p>
+                    <a href="http://www.scielo.org.bo/scielo.php" target="_blank" class="platform-link">Acceder →</a>
+                </div>
+                <div class="platform-card">
+                    <i class="fas fa-archive"></i>
+                    <h3>Repositorio Institucional</h3>
+                    <p>Tesis, proyectos de grado y producción científica UMSA</p>
+                    <a href="https://repositorio.umsa.bo" target="_blank" class="platform-link">Acceder →</a>
+                </div>
+                <div class="platform-card">
+                    <i class="fas fa-search"></i>
+                    <h3>Scopus</h3>
+                    <p>+7,000 editoriales · Producción académica mundial</p>
+                    <a href="https://www.scopus.com" target="_blank" class="platform-link">Acceder →</a>
+                </div>
+                <div class="platform-card">
+                    <i class="fas fa-university"></i>
+                    <h3>SUI-UMSA</h3>
+                    <p>Sistema de Unidades de Información</p>
+                    <a href="https://biblioadmin.umsa.bo" target="_blank" class="platform-link">Acceder →</a>
+                </div>
+                <div class="platform-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>KOHA</h3>
+                    <p>Sistema de gestión bibliotecaria con asistente virtual</p>
+                    <a href="https://biblioartdis.onrender.com/catalogo/" target="_blank" class="platform-link">Acceder →</a>
+                </div>
+                <div class="platform-card featured">
+                    <i class="fas fa-palette"></i>
+                    <h3>Biblioteca Digital ART&DIS</h3>
+                    <p>Sistema para formación académica</p>
+                    <a href="https://bibliotecaartdisumsa-production.up.railway.app/" target="_blank" class="platform-link">Acceder →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAMAS RESEARCH4LIFE -->
+    <section class="research-section">
+        <div class="container">
+            <div class="research-content">
+                <div class="research-text">
+                    <span class="section-tag">Research4Life</span>
+                    <h2>Programas internacionales<br>de acceso gratuito</h2>
+                    <div class="research-programs">
+                        <span><i class="fas fa-heartbeat"></i> HINARI (Salud)</span>
+                        <span><i class="fas fa-seedling"></i> AGORA (Agricultura)</span>
+                        <span><i class="fas fa-leaf"></i> OARE (Medio Ambiente)</span>
+                        <span><i class="fas fa-flask"></i> ARDI (Desarrollo)</span>
+                        <span><i class="fas fa-gavel"></i> GOALI (Jurídicas)</span>
+                    </div>
+                    <p>Acceso gratuito a información científica y académica de texto completo con cuenta institucional</p>
+                </div>
+                <div class="research-stats">
+                    <div class="stat-circle">
+                        <span>+7000</span>
+                        <small>editoriales</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COLECCIONES DESTACADAS -->
+    <section class="collections-section" id="colecciones">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">NUESTRO ACERVO</span>
+                <h2>Colecciones especializadas</h2>
+                <p>Fondo documental que respalda la excelencia académica</p>
+            </div>
+            <div class="collections-grid">
+                <div class="collection-card"><i class="fas fa-book"></i><h3>2,550</h3><p>Libros nacionales y extranjeros</p></div>
+                <div class="collection-card"><i class="fas fa-graduation-cap"></i><h3>250</h3><p>Tesis y proyectos de grado</p></div>
+                <div class="collection-card"><i class="fas fa-file-alt"></i><h3>13</h3><p>Títulos de revistas</p></div>
+                <div class="collection-card"><i class="fas fa-video"></i><h3>120</h3><p>Videos y DVD educativos</p></div>
+                <div class="collection-card"><i class="fas fa-landmark"></i><h3>750</h3><p>Colección Fundación Simón I. Patiño</p></div>
+                <div class="collection-card"><i class="fas fa-user-graduate"></i><h3>237</h3><p>Colección Samuel Aguirre</p></div>
+                <div class="collection-card"><i class="fas fa-flag-mexico"></i><h3>97</h3><p>Colección de México</p></div>
+                <div class="collection-card"><i class="fas fa-female"></i><h3>Especial</h3><p>Colección "Mujeres Libres de Violencia"</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="services-section" id="servicios">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">SERVICIOS</span>
+                <h2>Todo lo que necesitas</h2>
+                <p>Más allá de un simple repositorio de libros</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card"><i class="fas fa-book-reader"></i><h3>Préstamo en Sala</h3><p>Accede a recursos directamente en nuestras instalaciones</p></div>
+                <div class="service-card"><i class="fas fa-home"></i><h3>Préstamo a Domicilio</h3><p>Lleva libros a tu espacio personal</p></div>
+                <div class="service-card"><i class="fas fa-copy"></i><h3>Digitalización</h3><p>Servicio bajo pedido (respetando derechos de autor)</p></div>
+                <div class="service-card"><i class="fas fa-wifi"></i><h3>WIFI</h3><p>Conexión gratuita en sala</p></div>
+                <div class="service-card"><i class="fas fa-chalkboard-user"></i><h3>Actividades de Extensión</h3><p>Cursos y talleres</p></div>
+                <div class="service-card"><i class="fas fa-key"></i><h3>Activación de Cuenta</h3><p>Recuperación de cuenta institucional</p></div>
+                <div class="service-card"><i class="fas fa-id-card"></i><h3>Certificados</h3><p>Para trámites de traspaso y diploma académico</p></div>
+                <div class="service-card"><i class="fas fa-headset"></i><h3>Asesoramiento</h3><p>Atención personalizada</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REQUISITOS -->
+    <section class="requirements-section">
+        <div class="container">
+            <div class="requirements-grid">
+                <div class="requirements-card">
+                    <i class="fas fa-user-graduate"></i>
+                    <h3>Estudiantes</h3>
+                    <ul>
+                        <li>📄 Matrícula Universitaria</li>
+                        <li>🪪 Cédula de Identidad</li>
+                    </ul>
+                </div>
+                <div class="requirements-card">
+                    <i class="fas fa-chalkboard-user"></i>
+                    <h3>Docentes</h3>
+                    <ul>
+                        <li>📄 Última boleta de pago</li>
+                        <li>🪪 Cédula de Identidad</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HORARIO Y CONTACTO -->
     <section class="contact-section" id="contacto">
         <div class="container">
             <div class="contact-grid">
@@ -199,12 +228,11 @@
                     </div>
                 </div>
                 <div class="contact-card">
-                    <div class="qr-placeholder">
-                        <i class="fas fa-qrcode" style="font-size: 60px; color: #F05A2B;"></i>
-                        <h3>Escanea el QR</h3>
-                        <p>Accede desde tu celular a todos los recursos</p>
-                        <small>https://bibliotecaartesdisumsa-dotcom.github.io/biblioteca-separador</small>
-                    </div>
+                    <i class="fas fa-qrcode"></i>
+                    <h3>Escanea el QR</h3>
+                    <p>Accede desde tu celular a todos los recursos</p>
+                    <small>https://bibliotecaartesdisumsa-dotcom.github.io/biblioteca-separador</small>
+                    <button class="copy-btn" id="copyUrlBtn">📋 Copiar URL</button>
                 </div>
             </div>
         </div>
@@ -214,18 +242,16 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fas fa-palette"></i>
-                    <span>ART&DIS · UMSA</span>
-                </div>
-                <p>Biblioteca Especializada "Carlos Salazar Mostajo" · Servicios de información · Acceso libre y gratuito</p>
+                <div class="footer-logo"><i class="fas fa-palette"></i><span>Biblioteca "Carlos Salazar Mostajo"</span></div>
+                <p>Facultad de Arquitectura, Artes, Diseño y Urbanismo · Carreras de Artes Plásticas y Diseño Gráfico · UMSA</p>
                 <div class="footer-links">
+                    <a href="#inicio">Inicio</a>
                     <a href="#recursos">Recursos</a>
-                    <a href="#programas">Programas</a>
-                    <a href="#galeria">Carreras</a>
+                    <a href="#colecciones">Colecciones</a>
+                    <a href="#servicios">Servicios</a>
                     <a href="#contacto">Contacto</a>
                 </div>
-                <p class="copyright">© 2025 · Biblioteca ART&DIS · Universidad Mayor de San Andrés</p>
+                <p class="copyright">© 2025 · Biblioteca Especializada "Carlos Salazar Mostajo" · Universidad Mayor de San Andrés</p>
             </div>
         </div>
     </footer>
