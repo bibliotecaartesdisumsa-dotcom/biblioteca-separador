@@ -1,90 +1,89 @@
 /**
  * ============================================
  * BIBLIOTECA CARLOS SALAZAR MOSTAJO - UMSA
+ * Landing Page de Alto Rendimiento
  * Diseño moderno naranja
- * Versión: Definitiva 2.0
+ * Versión: 3.0 Definitiva
  * ============================================
  */
 
 // ===== INICIALIZACIÓN PRINCIPAL =====
 document.addEventListener('DOMContentLoaded', function() {
     
-    // ===== 1. MENÚ HAMBURGUESA PARA MÓVIL =====
+    // Inicializar todos los módulos
     initMobileMenu();
-    
-    // ===== 2. SCROLL SUAVE PARA ENLACES INTERNOS =====
     initSmoothScroll();
-    
-    // ===== 3. ANIMACIONES DE ENTRADA (Intersection Observer) =====
     initScrollAnimations();
-    
-    // ===== 4. EFECTO NAVBAR AL HACER SCROLL =====
     initNavbarScrollEffect();
-    
-    // ===== 5. MANEJO DE ERRORES DE IMÁGENES =====
     initImageErrorHandler();
-    
-    // ===== 6. COPIAR URL (BOTÓN QR) =====
     initCopyUrlButton();
-    
-    // ===== 7. EFECTO DE CARGA SUAVE =====
     initPageLoadEffect();
-    
-    // ===== 8. TOOLTIPS PERSONALIZADOS PARA ENLACES =====
     initCustomTooltips();
+    initCounterAnimation();
+    initBackToTop();
+    initActiveNavHighlight();
     
-    // ===== 9. CONTADOR DE VISITAS SIMULADO =====
-    initVisitCounter();
-    
-    // ===== 10. MENSAJES DE CONSOLA (personalizados) =====
+    // Mensajes de consola
     consoleMessages();
-    
 });
 
 // ============================================
-// FUNCIONES PRINCIPALES
+// 1. MENÚ HAMBURGUESA PARA MÓVIL
 // ============================================
-
-/**
- * 1. MENÚ HAMBURGUESA PARA DISPOSITIVOS MÓVILES
- */
 function initMobileMenu() {
     const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.querySelector('.nav-links');
+    const nav = document.querySelector('.nav');
     
-    if (!menuToggle || !navLinks) return;
+    if (!menuToggle || !nav) return;
     
     menuToggle.addEventListener('click', function() {
-        navLinks.classList.toggle('active');
+        nav.classList.toggle('active');
         const icon = menuToggle.querySelector('i');
         if (icon) {
-            if (navLinks.classList.contains('active')) {
+            if (nav.classList.contains('active')) {
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
+                nav.style.display = 'flex';
             } else {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
+                nav.style.display = '';
             }
         }
     });
     
     // Cerrar menú al hacer clic en un enlace
-    const links = navLinks.querySelectorAll('a');
+    const links = nav.querySelectorAll('a');
     links.forEach(link => {
         link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
+            nav.classList.remove('active');
             const icon = menuToggle.querySelector('i');
             if (icon) {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
             }
+            if (window.innerWidth <= 768) {
+                nav.style.display = '';
+            }
         });
+    });
+    
+    // Ajustar al redimensionar ventana
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            nav.classList.remove('active');
+            if (menuToggle.querySelector('i')) {
+                menuToggle.querySelector('i').classList.remove('fa-times');
+                menuToggle.querySelector('i').classList.add('fa-bars');
+            }
+            nav.style.display = '';
+        }
     });
 }
 
-/**
- * 2. SCROLL SUAVE PARA ENLACES INTERNOS
- */
+// ============================================
+// 2. SCROLL SUAVE PARA ENLACES INTERNOS
+// ============================================
 function initSmoothScroll() {
     const scrollLinks = document.querySelectorAll('a[href^="#"]');
     
@@ -92,35 +91,34 @@ function initSmoothScroll() {
         link.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
             
-            // Validar que no sea solo "#" o esté vacío
             if (!targetId || targetId === '#' || targetId === '') return;
             
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
                 e.preventDefault();
-                const navbar = document.querySelector('.navbar');
-                const navbarHeight = navbar ? navbar.offsetHeight : 80;
-                const targetPosition = targetElement.offsetTop - navbarHeight;
+                const header = document.querySelector('.header');
+                const headerHeight = header ? header.offsetHeight : 80;
+                const targetPosition = targetElement.offsetTop - headerHeight;
                 
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
                 });
                 
-                // Actualizar URL sin recargar (opcional)
+                // Actualizar URL sin recargar
                 history.pushState(null, null, targetId);
             }
         });
     });
 }
 
-/**
- * 3. ANIMACIONES DE ENTRADA AL HACER SCROLL
- */
+// ============================================
+// 3. ANIMACIONES DE ENTRADA AL HACER SCROLL
+// ============================================
 function initScrollAnimations() {
     const animateElements = document.querySelectorAll(
-        '.platform-card, .collection-card, .service-card, .requirements-card, .research-content, .contact-card'
+        '.platform-card, .collection-card, .service-card, .requirement-card, .research-content, .contact-card'
     );
     
     if (animateElements.length === 0) return;
@@ -129,22 +127,21 @@ function initScrollAnimations() {
     animateElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        el.style.transition = 'opacity 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1)';
     });
     
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -20px 0px'
+        rootMargin: '0px 0px -30px 0px'
     };
     
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
-                // Pequeño retraso para efecto cascada
                 setTimeout(() => {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
-                }, 100);
+                }, index * 50);
                 observer.unobserve(entry.target);
             }
         });
@@ -153,43 +150,44 @@ function initScrollAnimations() {
     animateElements.forEach(el => observer.observe(el));
 }
 
-/**
- * 4. EFECTO NAVBAR AL HACER SCROLL
- */
+// ============================================
+// 4. EFECTO NAVBAR AL HACER SCROLL
+// ============================================
 function initNavbarScrollEffect() {
-    const navbar = document.querySelector('.navbar');
-    if (!navbar) return;
+    const header = document.querySelector('.header');
+    if (!header) return;
     
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+            header.classList.add('scrolled');
         } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.boxShadow = '0 1px 0 rgba(0, 0, 0, 0.05)';
+            header.classList.remove('scrolled');
         }
     });
 }
 
-/**
- * 5. MANEJO DE ERRORES DE IMÁGENES
- */
+// ============================================
+// 5. MANEJO DE ERRORES DE IMÁGENES
+// ============================================
 function initImageErrorHandler() {
     const allImages = document.querySelectorAll('img');
     
     allImages.forEach(img => {
         img.addEventListener('error', function() {
-            this.src = 'https://placehold.co/600x400/F05A2B/FFFFFF?text=Imagen+no+disponible';
-            this.alt = 'Imagen no disponible';
+            // Si la imagen falla, usar placeholder con el color naranja
+            const text = this.alt || 'Imagen';
+            this.src = `https://placehold.co/80x80/F05A2B/FFFFFF?text=${encodeURIComponent(text.substring(0, 10))}`;
         });
     });
 }
 
-/**
- * 6. COPIAR URL AL PORTAPAPELES (botón QR)
- */
+// ============================================
+// 6. COPIAR URL AL PORTAPAPELES (botón QR)
+// ============================================
 function initCopyUrlButton() {
     const copyBtn = document.getElementById('copyUrlBtn');
+    const qrUrlSpan = document.getElementById('qrUrl');
+    
     if (!copyBtn) return;
     
     copyBtn.addEventListener('click', async () => {
@@ -210,11 +208,10 @@ function initCopyUrlButton() {
         }
     });
     
-    // También hacer clickeable el texto del QR
-    const qrSmall = document.querySelector('.contact-card small');
-    if (qrSmall) {
-        qrSmall.style.cursor = 'pointer';
-        qrSmall.addEventListener('click', () => {
+    // También hacer clickeable la URL
+    if (qrUrlSpan) {
+        qrUrlSpan.style.cursor = 'pointer';
+        qrUrlSpan.addEventListener('click', () => {
             const currentUrl = window.location.href;
             navigator.clipboard.writeText(currentUrl);
             showNotification('✅ URL copiada', 'success');
@@ -222,60 +219,69 @@ function initCopyUrlButton() {
     }
 }
 
-/**
- * 7. EFECTO DE CARGA SUAVE DE LA PÁGINA
- */
+// ============================================
+// 7. EFECTO DE CARGA SUAVE DE LA PÁGINA
+// ============================================
 function initPageLoadEffect() {
     // Ocultar body inicialmente
     document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.4s ease';
+    document.body.style.transition = 'opacity 0.5s ease';
     
     window.addEventListener('load', () => {
         setTimeout(() => {
             document.body.style.opacity = '1';
-        }, 100);
+        }, 150);
     });
 }
 
-/**
- * 8. TOOLTIPS PERSONALIZADOS PARA ENLACES
- */
+// ============================================
+// 8. TOOLTIPS PERSONALIZADOS PARA ENLACES
+// ============================================
 function initCustomTooltips() {
-    const links = document.querySelectorAll('.platform-link, .resource-link');
+    const links = document.querySelectorAll('.platform-link, .btn-primary, .btn-secondary, .btn-contact');
+    
+    let tooltipTimeout;
     
     links.forEach(link => {
         let tooltip = null;
         
         link.addEventListener('mouseenter', (e) => {
-            tooltip = document.createElement('span');
-            tooltip.textContent = '🔗 Abrir en nueva pestaña';
-            tooltip.style.cssText = `
-                position: fixed;
-                background: #F05A2B;
-                color: white;
-                padding: 4px 12px;
-                border-radius: 20px;
-                font-size: 0.7rem;
-                pointer-events: none;
-                z-index: 10000;
-                white-space: nowrap;
-                font-family: 'Inter', sans-serif;
-                font-weight: 500;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-            `;
-            document.body.appendChild(tooltip);
-            tooltip.style.left = `${e.pageX + 15}px`;
-            tooltip.style.top = `${e.pageY - 25}px`;
+            // Solo mostrar tooltip en desktop
+            if (window.innerWidth < 768) return;
+            
+            tooltipTimeout = setTimeout(() => {
+                tooltip = document.createElement('span');
+                tooltip.textContent = link.classList.contains('platform-link') ? '🔗 Abrir en nueva pestaña' : '📎 Ir a sección';
+                tooltip.style.cssText = `
+                    position: fixed;
+                    background: #F05A2B;
+                    color: white;
+                    padding: 5px 14px;
+                    border-radius: 30px;
+                    font-size: 0.7rem;
+                    pointer-events: none;
+                    z-index: 10000;
+                    white-space: nowrap;
+                    font-family: 'Inter', sans-serif;
+                    font-weight: 500;
+                    box-shadow: 0 4px 15px rgba(240, 90, 43, 0.3);
+                    letter-spacing: 0.3px;
+                `;
+                document.body.appendChild(tooltip);
+                tooltip.style.left = `${e.pageX + 15}px`;
+                tooltip.style.top = `${e.pageY - 30}px`;
+            }, 300);
         });
         
         link.addEventListener('mousemove', (e) => {
-            if (tooltip) {
+            if (tooltip && window.innerWidth >= 768) {
                 tooltip.style.left = `${e.pageX + 15}px`;
-                tooltip.style.top = `${e.pageY - 25}px`;
+                tooltip.style.top = `${e.pageY - 30}px`;
             }
         });
         
         link.addEventListener('mouseleave', () => {
+            clearTimeout(tooltipTimeout);
             if (tooltip) {
                 tooltip.remove();
                 tooltip = null;
@@ -284,42 +290,139 @@ function initCustomTooltips() {
     });
 }
 
-/**
- * 9. CONTADOR DE VISITAS SIMULADO (EFECTO VISUAL)
- */
-function initVisitCounter() {
-    const footer = document.querySelector('footer .footer-content');
-    if (!footer || document.querySelector('.visit-counter')) return;
+// ============================================
+// 9. ANIMACIÓN DE CONTADORES (estadísticas)
+// ============================================
+function initCounterAnimation() {
+    const counters = document.querySelectorAll('.stat span, .stat-circle span');
     
-    const counterDiv = document.createElement('div');
-    counterDiv.className = 'visit-counter';
-    counterDiv.style.cssText = `
-        margin-top: 1.5rem;
-        font-size: 0.7rem;
-        opacity: 0.7;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        flex-wrap: wrap;
-    `;
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target;
+                if (element.hasAttribute('data-counted')) return;
+                
+                const targetText = element.textContent;
+                const targetNumber = parseInt(targetText.replace(/[^0-9]/g, ''));
+                
+                if (!isNaN(targetNumber) && targetNumber > 0) {
+                    element.setAttribute('data-counted', 'true');
+                    let current = 0;
+                    const increment = targetNumber / 50;
+                    const originalText = element.textContent;
+                    const hasPlus = originalText.includes('+');
+                    
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= targetNumber) {
+                            element.textContent = hasPlus ? `${targetNumber}+` : targetNumber;
+                            clearInterval(timer);
+                        } else {
+                            element.textContent = hasPlus ? `${Math.floor(current)}+` : Math.floor(current);
+                        }
+                    }, 25);
+                }
+                counterObserver.unobserve(element);
+            }
+        });
+    }, { threshold: 0.5 });
     
-    // Simular contador de visitas (estático, solo decorativo)
-    counterDiv.innerHTML = `
-        <i class="fas fa-chart-line"></i>
-        Recurso educativo · Biblioteca UMSA 
-        <i class="fas fa-circle" style="font-size: 4px;"></i>
-        Acceso gratuito
-        <i class="fas fa-circle" style="font-size: 4px;"></i>
-        +7000 editoriales
-    `;
-    
-    footer.appendChild(counterDiv);
+    counters.forEach(counter => counterObserver.observe(counter));
 }
 
-/**
- * 10. NOTIFICACIONES EMERGENTES
- */
+// ============================================
+// 10. BOTÓN VOLVER ARRIBA (BACK TO TOP)
+// ============================================
+function initBackToTop() {
+    // Crear botón si no existe
+    let backBtn = document.querySelector('.back-to-top');
+    if (!backBtn) {
+        backBtn = document.createElement('button');
+        backBtn.className = 'back-to-top';
+        backBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        backBtn.style.cssText = `
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 45px;
+            height: 45px;
+            background: #F05A2B;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(240, 90, 43, 0.3);
+            font-size: 1.2rem;
+        `;
+        document.body.appendChild(backBtn);
+    }
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            backBtn.style.opacity = '1';
+            backBtn.style.visibility = 'visible';
+        } else {
+            backBtn.style.opacity = '0';
+            backBtn.style.visibility = 'hidden';
+        }
+    });
+    
+    backBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // Hover effect
+    backBtn.addEventListener('mouseenter', () => {
+        backBtn.style.transform = 'translateY(-3px)';
+        backBtn.style.background = '#e04a1a';
+    });
+    backBtn.addEventListener('mouseleave', () => {
+        backBtn.style.transform = 'translateY(0)';
+        backBtn.style.background = '#F05A2B';
+    });
+}
+
+// ============================================
+// 11. RESALTAR ENLACE ACTIVO EN NAVBAR
+// ============================================
+function initActiveNavHighlight() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav a');
+    
+    if (sections.length === 0 || navLinks.length === 0) return;
+    
+    window.addEventListener('scroll', () => {
+        let current = '';
+        const scrollPosition = window.scrollY + 100;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const href = link.getAttribute('href').substring(1);
+            if (href === current) {
+                link.classList.add('active');
+            }
+        });
+    });
+}
+
+// ============================================
+// 12. NOTIFICACIONES EMERGENTES
+// ============================================
 function showNotification(message, type = 'success') {
     // Remover notificaciones existentes
     const oldNotification = document.querySelector('.custom-notification');
@@ -330,18 +433,19 @@ function showNotification(message, type = 'success') {
     notification.textContent = message;
     notification.style.cssText = `
         position: fixed;
-        bottom: 20px;
-        right: 20px;
+        bottom: 30px;
+        right: 30px;
         background: ${type === 'success' ? '#F05A2B' : '#1F2937'};
         color: white;
         padding: 12px 24px;
         border-radius: 50px;
         font-size: 0.85rem;
-        z-index: 10000;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        z-index: 10001;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         animation: slideInRight 0.3s ease;
         font-family: 'Inter', sans-serif;
         font-weight: 500;
+        letter-spacing: 0.3px;
     `;
     
     document.body.appendChild(notification);
@@ -352,26 +456,26 @@ function showNotification(message, type = 'success') {
     }, 3000);
 }
 
-/**
- * 11. MENSAJES PERSONALIZADOS EN CONSOLA
- */
+// ============================================
+// 13. MENSAJES PERSONALIZADOS EN CONSOLA
+// ============================================
 function consoleMessages() {
     const currentUrl = window.location.href;
     
-    console.log('%c╔════════════════════════════════════════════════════════════╗', 'color: #F05A2B');
-    console.log('%c║     BIBLIOTECA CARLOS SALAZAR MOSTAJO - UMSA              ║', 'color: #F05A2B');
-    console.log('%c╠════════════════════════════════════════════════════════════╣', 'color: #F05A2B');
-    console.log('%c║  🎨 Diseño moderno · Paleta naranja                        ║', 'color: #FF8A4C');
-    console.log('%c║  📚 Recursos académicos para Artes Plásticas y Diseño      ║', 'color: #6B7280');
-    console.log('%c║  🔗 URL: ' + currentUrl, 'color: #F05A2B');
-    console.log('%c║  📱 Escanea el QR para acceder desde tu celular            ║', 'color: #6B7280');
-    console.log('%c╚════════════════════════════════════════════════════════════╝', 'color: #F05A2B');
+    console.log('%c╔════════════════════════════════════════════════════════════════╗', 'color: #F05A2B');
+    console.log('%c║     🎨 BIBLIOTECA CARLOS SALAZAR MOSTAJO - UMSA                ║', 'color: #F05A2B');
+    console.log('%c╠════════════════════════════════════════════════════════════════╣', 'color: #F05A2B');
+    console.log('%c║  📚 Landing Page de Alto Rendimiento                           ║', 'color: #FF8A4C');
+    console.log('%c║  🟠 Paleta naranja · Diseño moderno · Responsive               ║', 'color: #FF8A4C');
+    console.log('%c║  🔗 URL: ' + currentUrl, 'color: #6B7280');
+    console.log('%c║  📱 Escanea el QR para acceder desde tu celular                ║', 'color: #6B7280');
+    console.log('%c║  💡 Consejo: Usa el botón "Copiar URL" para compartir          ║', 'color: #6B7280');
+    console.log('%c╚════════════════════════════════════════════════════════════════╝', 'color: #F05A2B');
 }
 
 // ============================================
-// ANIMACIONES CSS DINÁMICAS
+// 14. ANIMACIONES CSS DINÁMICAS
 // ============================================
-
 const dynamicStyles = document.createElement('style');
 dynamicStyles.textContent = `
     @keyframes slideInRight {
@@ -393,6 +497,17 @@ dynamicStyles.textContent = `
         to {
             transform: translateX(100%);
             opacity: 0;
+        }
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
     }
     
@@ -436,31 +551,27 @@ dynamicStyles.textContent = `
         color: white;
     }
     
-    /* Animación de carga para tarjetas */
-    .platform-card, .collection-card, .service-card {
-        transition: all 0.3s ease;
-    }
-    
-    /* Efecto hover mejorado para botones */
-    .btn-primary, .btn-secondary, .btn-nav {
-        transition: all 0.3s ease;
+    /* Smooth scroll para toda la página */
+    html {
+        scroll-behavior: smooth;
     }
     
     /* Mejora de accesibilidad para focus */
     a:focus, button:focus {
         outline: 2px solid #F05A2B;
-        outline-offset: 2px;
+        outline-offset: 3px;
+    }
+    
+    /* Transiciones suaves */
+    .platform-card, .collection-card, .service-card {
+        transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     }
 `;
 document.head.appendChild(dynamicStyles);
 
 // ============================================
-// FUNCIONES ADICIONALES PARA MEJOR EXPERIENCIA
+// 15. PREVENIR ENVÍO DE FORMULARIOS VACÍOS
 // ============================================
-
-/**
- * Prevenir envío de formularios vacíos (si existen en el futuro)
- */
 document.addEventListener('DOMContentLoaded', () => {
     const forms = document.querySelectorAll('form');
     forms.forEach(form => {
@@ -484,33 +595,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-/**
- * Efecto de resaltado al hacer clic en enlaces de plataformas
- */
-document.addEventListener('DOMContentLoaded', () => {
-    const platformLinks = document.querySelectorAll('.platform-link');
-    platformLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            console.log(`🔗 Abriendo: ${this.textContent}`);
-        });
-    });
-});
-
-/**
- * Mostrar año actual en el footer si es necesario
- */
-document.addEventListener('DOMContentLoaded', () => {
-    const copyright = document.querySelector('.copyright');
-    if (copyright) {
-        const year = new Date().getFullYear();
-        if (!copyright.textContent.includes(year)) {
-            copyright.textContent = copyright.textContent.replace('2025', year);
-        }
-    }
-});
-
 // ============================================
-// EXPORTAR FUNCIONES PARA DEBUG (opcional)
+// EXPORTAR FUNCIONES PARA DEBUG
 // ============================================
 if (typeof window !== 'undefined') {
     window.bibliotecaScripts = {
@@ -519,8 +605,9 @@ if (typeof window !== 'undefined') {
             const url = window.location.href;
             navigator.clipboard.writeText(url);
             showNotification('✅ URL copiada', 'success');
-        }
+        },
+        version: '3.0'
     };
 }
 
-console.log('%c✅ Scripts de Biblioteca ART&DIS cargados correctamente', 'color: #10B981; font-weight: bold;');
+console.log('%c✅ Scripts de Biblioteca ART&DIS cargados correctamente | Versión 3.0', 'color: #10B981; font-weight: bold;');

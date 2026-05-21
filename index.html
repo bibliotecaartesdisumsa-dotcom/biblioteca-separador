@@ -10,39 +10,42 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="nav-container">
+    <!-- ===== HEADER / NAVBAR ===== -->
+    <header class="header">
+        <div class="header-container">
             <div class="logo">
-                <div class="logo-icon"><i class="fas fa-palette"></i></div>
+                <div class="logo-icon">
+                    <img src="imagenes/logo.png" alt="Logo" onerror="this.src='https://placehold.co/50x50/F05A2B/FFFFFF?text=UMSA'">
+                </div>
                 <div class="logo-text">
                     <span class="logo-bold">BIBLIOTECA</span>
                     <span class="logo-light">Carlos Salazar Mostajo</span>
                 </div>
             </div>
-            <div class="nav-links">
+            <nav class="nav">
                 <a href="#inicio">Inicio</a>
                 <a href="#recursos">Recursos</a>
                 <a href="#colecciones">Colecciones</a>
                 <a href="#servicios">Servicios</a>
                 <a href="#contacto">Contacto</a>
-            </div>
-            <a href="#contacto" class="btn-nav">WhatsApp →</a>
-            <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+            </nav>
+            <a href="#contacto" class="btn-contact">Contacto →</a>
+            <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
         </div>
-    </nav>
+    </header>
 
-    <!-- HERO PRINCIPAL - IMPACTANTE -->
+    <!-- ===== HERO PRINCIPAL ===== -->
     <section class="hero" id="inicio">
         <div class="hero-container">
-            <div class="hero-left">
+            <div class="hero-content">
                 <div class="hero-badge">Universidad Mayor de San Andrés</div>
                 <h1 class="hero-title">
-                    Conocimiento que <br>
+                    Conocimiento que<br>
                     <span class="highlight">transforma</span>
                 </h1>
-                <p class="hero-description">
-                    Biblioteca Especializada en Artes Plásticas y Diseño Gráfico. Acceso libre a miles de recursos científicos, académicos y culturales.
+                <p class="hero-text">
+                    Biblioteca Especializada en Artes Plásticas y Diseño Gráfico.<br>
+                    Acceso libre a miles de recursos científicos, académicos y culturales.
                 </p>
                 <div class="hero-stats">
                     <div class="stat"><span>2,550+</span> Libros</div>
@@ -55,23 +58,19 @@
                     <a href="#servicios" class="btn-secondary">Nuestros servicios</a>
                 </div>
             </div>
-            <div class="hero-right">
+            <div class="hero-image">
                 <div class="hero-card">
+                    <img src="imagenes/bibliotecaartdis.PNG" alt="Biblioteca ART&DIS" onerror="this.src='https://placehold.co/400x300/F05A2B/FFFFFF?text=Biblioteca+ART%26DIS'">
                     <i class="fas fa-graduation-cap"></i>
                     <h3>Acceso institucional</h3>
                     <p>Ingresa con tu cuenta UMSA a todas las plataformas</p>
-                    <div class="hero-card-icons">
-                        <i class="fas fa-database"></i>
-                        <i class="fas fa-book-open"></i>
-                        <i class="fas fa-globe-americas"></i>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PLATAFORMAS DESTACADAS (LO MÁS IMPORTANTE PRIMERO) -->
-    <section class="platforms-section">
+    <!-- ===== PLATAFORMAS DESTACADAS ===== -->
+    <section class="platforms" id="recursos">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">ACCESO DIRECTO</span>
@@ -80,34 +79,34 @@
             </div>
             <div class="platforms-grid">
                 <div class="platform-card">
-                    <i class="fas fa-globe-americas"></i>
+                    <img src="imagenes/scielo.PNG" alt="Scielo" onerror="this.src='https://placehold.co/80x80/F05A2B/FFFFFF?text=Scielo'">
                     <h3>Scielo</h3>
                     <p>Libros, journals y revistas científicas a texto completo</p>
                     <a href="http://www.scielo.org.bo/scielo.php" target="_blank" class="platform-link">Acceder →</a>
                 </div>
                 <div class="platform-card">
-                    <i class="fas fa-archive"></i>
+                    <img src="imagenes/repositorioinstitucional.PNG" alt="Repositorio" onerror="this.src='https://placehold.co/80x80/F05A2B/FFFFFF?text=Repositorio'">
                     <h3>Repositorio Institucional</h3>
                     <p>Tesis, proyectos de grado y producción científica UMSA</p>
                     <a href="https://repositorio.umsa.bo" target="_blank" class="platform-link">Acceder →</a>
                 </div>
                 <div class="platform-card">
-                    <i class="fas fa-search"></i>
+                    <img src="imagenes/scopus.PNG" alt="Scopus" onerror="this.src='https://placehold.co/80x80/F05A2B/FFFFFF?text=Scopus'">
                     <h3>Scopus</h3>
                     <p>+7,000 editoriales · Producción académica mundial</p>
                     <a href="https://www.scopus.com" target="_blank" class="platform-link">Acceder →</a>
+                </div>
+                <div class="platform-card">
+                    <img src="imagenes/koha.PNG" alt="KOHA" onerror="this.src='https://placehold.co/80x80/F05A2B/FFFFFF?text=KOHA'">
+                    <h3>KOHA</h3>
+                    <p>Sistema de gestión bibliotecaria con asistente virtual</p>
+                    <a href="https://biblioartdis.onrender.com/catalogo/" target="_blank" class="platform-link">Acceder →</a>
                 </div>
                 <div class="platform-card">
                     <i class="fas fa-university"></i>
                     <h3>SUI-UMSA</h3>
                     <p>Sistema de Unidades de Información</p>
                     <a href="https://biblioadmin.umsa.bo" target="_blank" class="platform-link">Acceder →</a>
-                </div>
-                <div class="platform-card">
-                    <i class="fas fa-laptop-code"></i>
-                    <h3>KOHA</h3>
-                    <p>Sistema de gestión bibliotecaria con asistente virtual</p>
-                    <a href="https://biblioartdis.onrender.com/catalogo/" target="_blank" class="platform-link">Acceder →</a>
                 </div>
                 <div class="platform-card featured">
                     <i class="fas fa-palette"></i>
@@ -119,21 +118,22 @@
         </div>
     </section>
 
-    <!-- PROGRAMAS RESEARCH4LIFE -->
-    <section class="research-section">
+    <!-- ===== RESEARCH4LIFE (estilo destacado) ===== -->
+    <section class="research4life">
         <div class="container">
             <div class="research-content">
                 <div class="research-text">
-                    <span class="section-tag">Research4Life</span>
-                    <h2>Programas internacionales<br>de acceso gratuito</h2>
-                    <div class="research-programs">
-                        <span><i class="fas fa-heartbeat"></i> HINARI (Salud)</span>
-                        <span><i class="fas fa-seedling"></i> AGORA (Agricultura)</span>
-                        <span><i class="fas fa-leaf"></i> OARE (Medio Ambiente)</span>
-                        <span><i class="fas fa-flask"></i> ARDI (Desarrollo)</span>
-                        <span><i class="fas fa-gavel"></i> GOALI (Jurídicas)</span>
+                    <span class="section-tag">Programas internacionales</span>
+                    <h2>Research4Life</h2>
+                    <p>Acceso gratuito a información científica y académica de texto completo</p>
+                    <div class="research-badges">
+                        <span><i class="fas fa-heartbeat"></i> HINARI</span>
+                        <span><i class="fas fa-seedling"></i> AGORA</span>
+                        <span><i class="fas fa-leaf"></i> OARE</span>
+                        <span><i class="fas fa-flask"></i> ARDI</span>
+                        <span><i class="fas fa-gavel"></i> GOALI</span>
                     </div>
-                    <p>Acceso gratuito a información científica y académica de texto completo con cuenta institucional</p>
+                    <small>Es necesario contar con cuenta institucional para acceder</small>
                 </div>
                 <div class="research-stats">
                     <div class="stat-circle">
@@ -145,8 +145,8 @@
         </div>
     </section>
 
-    <!-- COLECCIONES DESTACADAS -->
-    <section class="collections-section" id="colecciones">
+    <!-- ===== COLECCIONES ===== -->
+    <section class="collections" id="colecciones">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">NUESTRO ACERVO</span>
@@ -154,20 +154,20 @@
                 <p>Fondo documental que respalda la excelencia académica</p>
             </div>
             <div class="collections-grid">
-                <div class="collection-card"><i class="fas fa-book"></i><h3>2,550</h3><p>Libros nacionales y extranjeros</p></div>
-                <div class="collection-card"><i class="fas fa-graduation-cap"></i><h3>250</h3><p>Tesis y proyectos de grado</p></div>
-                <div class="collection-card"><i class="fas fa-file-alt"></i><h3>13</h3><p>Títulos de revistas</p></div>
-                <div class="collection-card"><i class="fas fa-video"></i><h3>120</h3><p>Videos y DVD educativos</p></div>
-                <div class="collection-card"><i class="fas fa-landmark"></i><h3>750</h3><p>Colección Fundación Simón I. Patiño</p></div>
-                <div class="collection-card"><i class="fas fa-user-graduate"></i><h3>237</h3><p>Colección Samuel Aguirre</p></div>
-                <div class="collection-card"><i class="fas fa-flag-mexico"></i><h3>97</h3><p>Colección de México</p></div>
-                <div class="collection-card"><i class="fas fa-female"></i><h3>Especial</h3><p>Colección "Mujeres Libres de Violencia"</p></div>
+                <div class="collection-card"><i class="fas fa-book"></i><h3>2,550</h3><p>Libros</p></div>
+                <div class="collection-card"><i class="fas fa-graduation-cap"></i><h3>250</h3><p>Tesis</p></div>
+                <div class="collection-card"><i class="fas fa-file-alt"></i><h3>13</h3><p>Revistas</p></div>
+                <div class="collection-card"><i class="fas fa-video"></i><h3>120</h3><p>Multimedia</p></div>
+                <div class="collection-card"><i class="fas fa-landmark"></i><h3>750</h3><p>Fundación Patiño</p></div>
+                <div class="collection-card"><i class="fas fa-user-graduate"></i><h3>237</h3><p>Colección Aguirre</p></div>
+                <div class="collection-card"><i class="fas fa-flag-mexico"></i><h3>97</h3><p>Colección México</p></div>
+                <div class="collection-card"><i class="fas fa-female"></i><h3>Especial</h3><p>Mujeres Libres de Violencia</p></div>
             </div>
         </div>
     </section>
 
-    <!-- SERVICIOS -->
-    <section class="services-section" id="servicios">
+    <!-- ===== SERVICIOS ===== -->
+    <section class="services" id="servicios">
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">SERVICIOS</span>
@@ -175,44 +175,38 @@
                 <p>Más allá de un simple repositorio de libros</p>
             </div>
             <div class="services-grid">
-                <div class="service-card"><i class="fas fa-book-reader"></i><h3>Préstamo en Sala</h3><p>Accede a recursos directamente en nuestras instalaciones</p></div>
+                <div class="service-card"><i class="fas fa-book-reader"></i><h3>Préstamo en Sala</h3><p>Accede a recursos en nuestras instalaciones</p></div>
                 <div class="service-card"><i class="fas fa-home"></i><h3>Préstamo a Domicilio</h3><p>Lleva libros a tu espacio personal</p></div>
-                <div class="service-card"><i class="fas fa-copy"></i><h3>Digitalización</h3><p>Servicio bajo pedido (respetando derechos de autor)</p></div>
+                <div class="service-card"><i class="fas fa-copy"></i><h3>Digitalización</h3><p>Servicio bajo pedido</p></div>
                 <div class="service-card"><i class="fas fa-wifi"></i><h3>WIFI</h3><p>Conexión gratuita en sala</p></div>
                 <div class="service-card"><i class="fas fa-chalkboard-user"></i><h3>Actividades de Extensión</h3><p>Cursos y talleres</p></div>
                 <div class="service-card"><i class="fas fa-key"></i><h3>Activación de Cuenta</h3><p>Recuperación de cuenta institucional</p></div>
-                <div class="service-card"><i class="fas fa-id-card"></i><h3>Certificados</h3><p>Para trámites de traspaso y diploma académico</p></div>
+                <div class="service-card"><i class="fas fa-id-card"></i><h3>Certificados</h3><p>Trámites de traspaso y diploma</p></div>
                 <div class="service-card"><i class="fas fa-headset"></i><h3>Asesoramiento</h3><p>Atención personalizada</p></div>
             </div>
         </div>
     </section>
 
-    <!-- REQUISITOS -->
-    <section class="requirements-section">
+    <!-- ===== REQUISITOS ===== -->
+    <section class="requirements">
         <div class="container">
             <div class="requirements-grid">
-                <div class="requirements-card">
+                <div class="requirement-card">
                     <i class="fas fa-user-graduate"></i>
                     <h3>Estudiantes</h3>
-                    <ul>
-                        <li>📄 Matrícula Universitaria</li>
-                        <li>🪪 Cédula de Identidad</li>
-                    </ul>
+                    <ul><li>📄 Matrícula Universitaria</li><li>🪪 Cédula de Identidad</li></ul>
                 </div>
-                <div class="requirements-card">
+                <div class="requirement-card">
                     <i class="fas fa-chalkboard-user"></i>
                     <h3>Docentes</h3>
-                    <ul>
-                        <li>📄 Última boleta de pago</li>
-                        <li>🪪 Cédula de Identidad</li>
-                    </ul>
+                    <ul><li>📄 Última boleta de pago</li><li>🪪 Cédula de Identidad</li></ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- HORARIO Y CONTACTO -->
-    <section class="contact-section" id="contacto">
+    <!-- ===== CONTACTO ===== -->
+    <section class="contact" id="contacto">
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-info">
@@ -220,7 +214,7 @@
                     <h2>¿Necesitas ayuda?</h2>
                     <p>Estamos aquí para apoyar tu formación académica</p>
                     <div class="contact-details">
-                        <div class="contact-item"><i class="far fa-clock"></i><span>Lunes a viernes · 09:00 a 16:00 (horario continuo)</span></div>
+                        <div class="contact-item"><i class="far fa-clock"></i><span>Lunes a viernes · 09:00 a 16:00</span></div>
                         <div class="contact-item"><i class="fab fa-facebook"></i><span>Biblioteca Artes Plásticas, Diseño Gráfico y Música - UMSA</span></div>
                         <div class="contact-item"><i class="fas fa-envelope"></i><span>biblioteca.artesdis.umsa@gmail.com</span></div>
                         <div class="contact-item"><i class="fab fa-whatsapp"></i><span>WhatsApp: 70172521</span></div>
@@ -231,14 +225,14 @@
                     <i class="fas fa-qrcode"></i>
                     <h3>Escanea el QR</h3>
                     <p>Accede desde tu celular a todos los recursos</p>
-                    <small>https://bibliotecaartesdisumsa-dotcom.github.io/biblioteca-separador</small>
+                    <small id="qrUrl">https://bibliotecaartesdisumsa-dotcom.github.io/biblioteca-separador</small>
                     <button class="copy-btn" id="copyUrlBtn">📋 Copiar URL</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -251,7 +245,7 @@
                     <a href="#servicios">Servicios</a>
                     <a href="#contacto">Contacto</a>
                 </div>
-                <p class="copyright">© 2025 · Biblioteca Especializada "Carlos Salazar Mostajo" · Universidad Mayor de San Andrés</p>
+                <p class="copyright">© 2025 · Biblioteca Especializada "Carlos Salazar Mostajo"</p>
             </div>
         </div>
     </footer>
