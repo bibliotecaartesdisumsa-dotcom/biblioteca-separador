@@ -3,218 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Biblioteca ART&DIS - UMSA | Artes Plásticas y Diseño Gráfico</title>
+    <title>Biblioteca ART&DIS | UMSA - Recursos académicos</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <!-- BARRA SUPERIOR CON LOGO -->
-    <div class="top-bar">
-        <div class="logo-area">
-            <div class="logo-placeholder" id="logoContainer">
-                <!-- ESPACIO PARA TU LOGO -->
-                <img id="logoImage" src="https://placehold.co/60x60/AA2A7A/F9F6F9?text=LOGO" alt="Logo" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%;">
+    <!-- NAVBAR MODERNA -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
                 <div class="logo-text">
-                    <span class="logo-title">ARTES & DISEÑO</span>
-                    <span class="logo-subtitle">UMSA</span>
+                    <span class="logo-bold">ART&DIS</span>
+                    <span class="logo-light">UMSA</span>
                 </div>
             </div>
+            <div class="nav-links">
+                <a href="#recursos">Recursos</a>
+                <a href="#programas">Programas</a>
+                <a href="#galeria">Carreras</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+            <a href="#contacto" class="btn-nav">Let's Talk →</a>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
-        <div class="umsa-badge">
-            <i class="fas fa-university"></i> UMSA
-        </div>
-    </div>
+    </nav>
 
-    <!-- HERO SECTION CON IMAGEN DE FONDO -->
+    <!-- HERO SECTION - Estilo Entlify -->
     <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>Biblioteca Especializada<br><span>"Carlos Salazar Mostajo"</span></h1>
-            <p>Recursos académicos, producción científica y cultura visual para la comunidad de Artes Plásticas y Diseño Gráfico</p>
-            <div class="hero-buttons">
-                <a href="#recursos" class="btn-primary"><i class="fas fa-search"></i> Explorar recursos</a>
-                <a href="#galeria" class="btn-secondary"><i class="fas fa-images"></i> Galería</a>
+        <div class="hero-container">
+            <div class="hero-left">
+                <h1 class="hero-title">
+                    Recursos académicos <br>
+                    <span class="highlight">para tu formación</span>
+                </h1>
+                <p class="hero-description">
+                    Biblioteca Especializada "Carlos Salazar Mostajo" · Acceso libre y gratuito a miles de recursos científicos, académicos y culturales para estudiantes de Artes Plásticas, Diseño Gráfico y Música.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#recursos" class="btn-primary">Explorar recursos →</a>
+                    <a href="#galeria" class="btn-secondary">Ver galería</a>
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-check-circle"></i>
+                    <span>+7000 editoriales · Acceso institucional · 5 programas internacionales</span>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-image">
+                    <img src="https://placehold.co/500x500/F05A2B/FFFFFF?text=ARTES+%26+DISE%C3%91O" alt="Artes y Diseño">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN DE RECURSOS (SEPARADORES ORIGINALES MEJORADOS) -->
+    <!-- SECCIÓN WHY TEAMS (inspirado en Entlify) -->
+    <section class="why-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">¿POR QUÉ USAR NUESTROS SERVICIOS?</span>
+                <h2>Más que una biblioteca,<br>un ecosistema de aprendizaje</h2>
+                <p>Trabajamos para que estudiantes y docentes tengan acceso a la mejor información académica</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>Acceso inmediato</h3>
+                    <p>Plataformas disponibles 24/7 con ingreso directo desde tu cuenta institucional</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-globe-americas"></i></div>
+                    <h3>Recursos globales</h3>
+                    <p>Más de 7000 editoriales del mundo + programas HINARI, AGORA, OARE, ARDI, GOALI</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Apoyo académico</h3>
+                    <p>Diseñado específicamente para estudiantes de Artes, Diseño y Música</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RECURSOS PRINCIPALES -->
     <div class="container" id="recursos">
-        <!-- SEPARADOR 1 - Biblioteca -->
-        <div class="separator-card">
-            <div class="card-header">
-                <i class="fas fa-landmark"></i>
-                <h2>Biblioteca "Carlos Salazar Mostajo"</h2>
-            </div>
-            <div class="card-content">
-                <div class="resources-grid">
-                    <div class="resource-item">
-                        <div class="resource-icon"><i class="fas fa-database"></i></div>
-                        <div class="resource-info">
-                            <div class="resource-title">Sistema de Unidades de Información (SUI-UMSA)</div>
-                            <a href="https://biblioadmin.umsa.bo" target="_blank" class="resource-link">biblioadmin.umsa.bo →</a>
-                        </div>
-                    </div>
-                    <div class="resource-item">
-                        <div class="resource-icon"><i class="fas fa-archive"></i></div>
-                        <div class="resource-info">
-                            <div class="resource-title">Repositorio Institucional UMSA</div>
-                            <div class="resource-desc">Producción científica y académica</div>
-                            <a href="https://repositorio.umsa.bo" target="_blank" class="resource-link">repositorio.umsa.bo →</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="section-header">
+            <span class="section-tag">RECURSOS DIGITALES</span>
+            <h2>Plataformas de acceso gratuito</h2>
+            <p>Explora todo el contenido científico y académico</p>
         </div>
 
-        <!-- SEPARADOR 2 - Acceso Libre -->
-        <div class="separator-card">
-            <div class="card-header">
-                <i class="fas fa-lock-open"></i>
-                <h2>Acceso Libre & Gratuito</h2>
+        <div class="resources-grid">
+            <div class="resource-card">
+                <div class="resource-icon"><i class="fas fa-landmark"></i></div>
+                <h3>SUI-UMSA</h3>
+                <p>Sistema de Unidades de Información</p>
+                <a href="https://biblioadmin.umsa.bo" target="_blank" class="resource-link">Acceder →</a>
             </div>
-            <div class="card-content">
-                <div class="resources-grid">
-                    <div class="resource-item">
-                        <div class="resource-icon"><i class="fas fa-globe-americas"></i></div>
-                        <div class="resource-info">
-                            <div class="resource-title">Programa Scielo</div>
-                            <div class="resource-desc">Libros, journals y revistas científicas a texto completo</div>
-                            <a href="http://www.scielo.org.bo/scielo.php" target="_blank" class="resource-link">scielo.org.bo →</a>
-                        </div>
-                    </div>
-                    <div class="resource-item">
-                        <div class="resource-icon"><i class="fas fa-newspaper"></i></div>
-                        <div class="resource-info">
-                            <div class="resource-title">Revistas Bolivianas</div>
-                            <div class="resource-desc">Información académica en línea</div>
-                        </div>
-                    </div>
-                    <div class="resource-item">
-                        <div class="resource-icon"><i class="fas fa-venus-mars"></i></div>
-                        <div class="resource-info">
-                            <div class="resource-title">Colección "Mujeres Libres de Violencia"</div>
-                            <div class="resource-desc">Acceso directo desde plataformas</div>
-                        </div>
-                    </div>
-                </div>
+            <div class="resource-card">
+                <div class="resource-icon"><i class="fas fa-archive"></i></div>
+                <h3>Repositorio Institucional</h3>
+                <p>Producción científica UMSA</p>
+                <a href="https://repositorio.umsa.bo" target="_blank" class="resource-link">Acceder →</a>
             </div>
-        </div>
-
-        <!-- SEPARADOR 3 - Programas Internacionales -->
-        <div class="separator-card">
-            <div class="card-header">
-                <i class="fas fa-hand-holding-heart"></i>
-                <h2>Programas Internacionales</h2>
+            <div class="resource-card">
+                <div class="resource-icon"><i class="fas fa-globe-americas"></i></div>
+                <h3>Scielo Bolivia</h3>
+                <p>Libros, journals y revistas científicas</p>
+                <a href="http://www.scielo.org.bo/scielo.php" target="_blank" class="resource-link">Acceder →</a>
             </div>
-            <div class="card-content">
-                <div class="programs-badge-grid">
-                    <span class="badge"><i class="fas fa-heartbeat"></i> HINARI (Salud)</span>
-                    <span class="badge"><i class="fas fa-seedling"></i> AGORA (Agricultura)</span>
-                    <span class="badge"><i class="fas fa-leaf"></i> OARE (Medio Ambiente)</span>
-                    <span class="badge"><i class="fas fa-flask"></i> ARDI (Desarrollo)</span>
-                    <span class="badge"><i class="fas fa-gavel"></i> GOALI (Jurídicas)</span>
-                </div>
-                <div class="highlight-box">
-                    <i class="fas fa-database"></i>
-                    <p>📚 Base de datos de acceso libre con <strong>+7000 editoriales del mundo</strong></p>
-                </div>
-            </div>
-        </div>
-
-        <!-- SEPARADOR 4 - Biblioteca Digital ART&DIS -->
-        <div class="separator-card featured">
-            <div class="card-header">
-                <i class="fas fa-palette"></i>
-                <h2>BIBLIOTECA DIGITAL ART&DIS</h2>
-            </div>
-            <div class="card-content">
-                <div class="featured-info">
-                    <i class="fas fa-graduation-cap" style="font-size: 48px; color: #AA2A7A;"></i>
-                    <div class="resource-desc">Sistema bibliográfico diseñado para apoyar la formación académica de los estudiantes en nuestra área</div>
-                </div>
-                <a href="https://bibliotecaartdisumsa-production.up.railway.app/" target="_blank" class="resource-link large">🔗 Acceder a Biblioteca ART&DIS →</a>
-                <div class="info-note">
-                    <i class="fas fa-key"></i> Ingresa con tu cuenta institucional
-                </div>
-            </div>
-        </div>
-
-        <!-- SEPARADOR 5 - Horario y Contacto -->
-        <div class="separator-card">
-            <div class="card-header">
-                <i class="fas fa-clock"></i>
-                <h2>Horario de Atención</h2>
-            </div>
-            <div class="card-content">
-                <div class="contact-block">
-                    <p><i class="far fa-calendar-alt"></i> <strong>Lunes a viernes:</strong> 09:00 a 16:00 (horario continuo)</p>
-                </div>
-                <div class="contact-block">
-                    <p><i class="fas fa-phone-alt"></i> <strong>Contacto directo:</strong></p>
-                    <ul class="contact-list">
-                        <li><i class="fab fa-facebook"></i> Facebook: Biblioteca Artes Plásticas, Diseño Gráfico y Música - UMSA</li>
-                        <li><i class="fas fa-envelope"></i> Email: <a href="mailto:biblioteca.artesdis.umsa@gmail.com">biblioteca.artesdis.umsa@gmail.com</a></li>
-                        <li><i class="fab fa-whatsapp"></i> WhatsApp: <strong>70172521</strong></li>
-                        <li><i class="fas fa-globe"></i> <a href="https://artes.umsa.bo" target="_blank">artes.umsa.bo</a> - <a href="https://diseno.umsa.bo" target="_blank">diseno.umsa.bo</a></li>
-                    </ul>
-                </div>
+            <div class="resource-card featured">
+                <div class="resource-icon"><i class="fas fa-palette"></i></div>
+                <h3>Biblioteca Digital ART&DIS</h3>
+                <p>Sistema para formación académica</p>
+                <a href="https://bibliotecaartdisumsa-production.up.railway.app/" target="_blank" class="resource-link">Acceder →</a>
             </div>
         </div>
     </div>
 
-    <!-- SECCIÓN DE GALERÍA DE IMÁGENES (ESPACIO PARA FOTOS DE LA CARRERA) -->
-    <section class="gallery-section" id="galeria">
-        <div class="section-title">
-            <h2><i class="fas fa-camera"></i> Nuestras Carreras</h2>
-            <p>Artes Plásticas · Diseño Gráfico · Música</p>
-        </div>
-        <div class="gallery-grid">
-            <!-- ESPACIO PARA SUBIR FOTOS - Reemplazá estos placeholders con tus imágenes -->
-            <div class="gallery-item">
-                <img src="https://placehold.co/400x300/6D5894/F9F6F9?text=Artes+Pl%C3%A1sticas" alt="Artes Plásticas">
-                <div class="gallery-caption">Artes Plásticas</div>
+    <!-- PROGRAMAS INTERNACIONALES -->
+    <section class="programs-section" id="programas">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">PROGRAMAS INTERNACIONALES</span>
+                <h2>Acceso global al conocimiento</h2>
+                <p>Conjunto de programas de acceso gratuito para investigación</p>
             </div>
-            <div class="gallery-item">
-                <img src="https://placehold.co/400x300/C78BB4/1D131C?text=Dise%C3%B1o+Gr%C3%A1fico" alt="Diseño Gráfico">
-                <div class="gallery-caption">Diseño Gráfico</div>
+            <div class="programs-grid">
+                <div class="program-item"><i class="fas fa-heartbeat"></i><span>HINARI</span><small>Salud</small></div>
+                <div class="program-item"><i class="fas fa-seedling"></i><span>AGORA</span><small>Agricultura</small></div>
+                <div class="program-item"><i class="fas fa-leaf"></i><span>OARE</span><small>Medio Ambiente</small></div>
+                <div class="program-item"><i class="fas fa-flask"></i><span>ARDI</span><small>Desarrollo</small></div>
+                <div class="program-item"><i class="fas fa-gavel"></i><span>GOALI</span><small>Jurídicas</small></div>
             </div>
-            <div class="gallery-item">
-                <img src="https://placehold.co/400x300/AA2A7A/F9F6F9?text=Talleres" alt="Talleres">
-                <div class="gallery-caption">Talleres de Arte</div>
+            <div class="highlight-banner">
+                <i class="fas fa-database"></i>
+                <p><strong>+7,000 editoriales</strong> · Acceso libre y gratuito a producción académica y científica de todo el mundo</p>
             </div>
-            <div class="gallery-item">
-                <img src="https://placehold.co/400x300/6D5894/FFFFFF?text=Exposiciones" alt="Exposiciones">
-                <div class="gallery-caption">Exposiciones</div>
-            </div>
-        </div>
-        <div class="gallery-note">
-            <i class="fas fa-upload"></i> Para subir tus fotos: reemplazá los <strong>placehold.co</strong> en la sección "gallery-grid"
         </div>
     </section>
 
-    <!-- SECCIÓN QR (opcional) -->
-    <section class="qr-section">
-        <div class="qr-card">
-            <div class="qr-info">
-                <h3><i class="fas fa-qrcode"></i> Escanea y comparte</h3>
-                <p>Accede a todos los recursos desde tu celular</p>
+    <!-- GALERÍA DE CARRERAS -->
+    <section class="gallery-section" id="galeria">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">NUESTRAS CARRERAS</span>
+                <h2>Artes Plásticas · Diseño Gráfico · Música</h2>
+                <p>Formación artística con excelencia académica</p>
             </div>
-            <div class="qr-placeholder" id="qr-code-display">
-                <div class="qr-message">
-                    <i class="fas fa-qrcode" style="font-size: 48px; color: #AA2A7A;"></i>
-                    <p>Tu QR aquí</p>
-                    <small>https://bibliotecaartesdisumsa-dotcom.github.io/biblioteca-separador</small>
+            <div class="gallery-grid">
+                <div class="gallery-card">
+                    <img src="https://placehold.co/600x400/F05A2B/FFFFFF?text=Artes+Pl%C3%A1sticas" alt="Artes Plásticas">
+                    <div class="gallery-info">
+                        <h3>Artes Plásticas</h3>
+                        <p>Pintura, escultura, grabado y más</p>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="https://placehold.co/600x400/FF8A4C/FFFFFF?text=Dise%C3%B1o+Gr%C3%A1fico" alt="Diseño Gráfico">
+                    <div class="gallery-info">
+                        <h3>Diseño Gráfico</h3>
+                        <p>Comunicación visual, branding, editorial</p>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="https://placehold.co/600x400/F05A2B/FFFFFF?text=M%C3%BAsica" alt="Música">
+                    <div class="gallery-info">
+                        <h3>Música</h3>
+                        <p>Formación instrumental y teórica</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- CONTACTO Y HORARIO -->
+    <section class="contact-section" id="contacto">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <span class="section-tag">CONTACTO</span>
+                    <h2>¿Necesitas ayuda?</h2>
+                    <p>Estamos aquí para apoyar tu formación académica</p>
+                    <div class="contact-details">
+                        <div class="contact-item"><i class="far fa-clock"></i><span>Lunes a viernes · 09:00 a 16:00 (horario continuo)</span></div>
+                        <div class="contact-item"><i class="fab fa-facebook"></i><span>Biblioteca Artes Plásticas, Diseño Gráfico y Música - UMSA</span></div>
+                        <div class="contact-item"><i class="fas fa-envelope"></i><span>biblioteca.artesdis.umsa@gmail.com</span></div>
+                        <div class="contact-item"><i class="fab fa-whatsapp"></i><span>WhatsApp: 70172521</span></div>
+                        <div class="contact-item"><i class="fas fa-globe"></i><span>artes.umsa.bo · diseno.umsa.bo</span></div>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="qr-placeholder">
+                        <i class="fas fa-qrcode" style="font-size: 60px; color: #F05A2B;"></i>
+                        <h3>Escanea el QR</h3>
+                        <p>Accede desde tu celular a todos los recursos</p>
+                        <small>https://bibliotecaartesdisumsa-dotcom.github.io/biblioteca-separador</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
-        <div class="footer-content">
-            <p><i class="fas fa-copyright"></i> Biblioteca Especializada "Carlos Salazar Mostajo" - UMSA</p>
-            <p>Servicios de información · Acceso libre y gratuito</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-palette"></i>
+                    <span>ART&DIS · UMSA</span>
+                </div>
+                <p>Biblioteca Especializada "Carlos Salazar Mostajo" · Servicios de información · Acceso libre y gratuito</p>
+                <div class="footer-links">
+                    <a href="#recursos">Recursos</a>
+                    <a href="#programas">Programas</a>
+                    <a href="#galeria">Carreras</a>
+                    <a href="#contacto">Contacto</a>
+                </div>
+                <p class="copyright">© 2025 · Biblioteca ART&DIS · Universidad Mayor de San Andrés</p>
+            </div>
         </div>
     </footer>
 
