@@ -1,8 +1,8 @@
 /* ============================================
    BIBLIOTECA CARLOS SALAZAR MOSTAJO - UMSA
    Landing Page de Alto Rendimiento
-   Paleta naranja · Diseño moderno
-   Versión: 3.0 Definitiva
+   TEMA OSCURO · Paleta naranja
+   Versión: 4.0 Dark Mode
    ============================================ */
 
 /* ===== RESET Y VARIABLES ===== */
@@ -15,18 +15,21 @@
 :root {
     --naranja-intenso: #F05A2B;
     --naranja-claro: #FF8A4C;
-    --naranja-suave: #FFF3ED;
+    --naranja-suave: #2D1A12;
     --naranja-hover: #e04a1a;
     --blanco: #FFFFFF;
-    --gris-fondo: #F8F9FA;
-    --gris-oscuro: #1F2937;
-    --gris-medio: #6B7280;
-    --gris-claro: #E5E7EB;
-    --gris-borde: #F3F4F6;
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-xl: 0 20px 25px -5px rgba(240, 90, 43, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+    --dark-fondo: #0F0F0F;
+    --dark-surface: #1A1A1A;
+    --dark-surface-2: #242424;
+    --dark-border: #333333;
+    --gris-oscuro: #E5E7EB;
+    --gris-medio: #9CA3AF;
+    --gris-claro: #6B7280;
+    --gris-borde: #2A2A2A;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+    --shadow-xl: 0 20px 25px -5px rgba(240, 90, 43, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
     --transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 }
 
@@ -37,7 +40,7 @@ html {
 
 body {
     font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
-    background-color: var(--blanco);
+    background-color: var(--dark-fondo);
     color: var(--gris-oscuro);
     line-height: 1.5;
     overflow-x: hidden;
@@ -75,7 +78,7 @@ h1, h2, h3 {
 .section-header h2 {
     font-size: 2.2rem;
     font-weight: 700;
-    color: var(--gris-oscuro);
+    color: var(--blanco);
     margin-bottom: 0.75rem;
 }
 
@@ -92,7 +95,7 @@ h1, h2, h3 {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.98);
+    background: rgba(15, 15, 15, 0.98);
     backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 0.8rem 0;
@@ -102,7 +105,7 @@ h1, h2, h3 {
 
 .header.scrolled {
     box-shadow: var(--shadow-md);
-    border-bottom-color: var(--gris-borde);
+    border-bottom-color: var(--dark-border);
     padding: 0.6rem 0;
 }
 
@@ -147,7 +150,7 @@ h1, h2, h3 {
 .logo-bold {
     font-weight: 800;
     font-size: 1rem;
-    color: var(--gris-oscuro);
+    color: var(--blanco);
     letter-spacing: -0.5px;
 }
 
@@ -176,7 +179,7 @@ h1, h2, h3 {
 }
 
 .btn-contact {
-    background: var(--gris-oscuro);
+    background: var(--dark-surface-2);
     color: white;
     padding: 0.5rem 1.3rem;
     border-radius: 40px;
@@ -197,13 +200,13 @@ h1, h2, h3 {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: var(--gris-oscuro);
+    color: var(--blanco);
 }
 
 /* ===== HERO SECTION ===== */
 .hero {
     padding: 8rem 0 5rem;
-    background: linear-gradient(135deg, var(--gris-fondo) 0%, var(--naranja-suave) 100%);
+    background: linear-gradient(135deg, var(--dark-fondo) 0%, var(--dark-surface) 100%);
     min-height: 90vh;
     display: flex;
     align-items: center;
@@ -221,7 +224,7 @@ h1, h2, h3 {
 
 .hero-badge {
     display: inline-block;
-    background: rgba(240, 90, 43, 0.1);
+    background: rgba(240, 90, 43, 0.15);
     color: var(--naranja-intenso);
     padding: 0.3rem 1rem;
     border-radius: 40px;
@@ -235,7 +238,7 @@ h1, h2, h3 {
     font-weight: 800;
     line-height: 1.2;
     letter-spacing: -1.5px;
-    color: #E5E7EB;
+    color: var(--blanco);
     margin-bottom: 1.2rem;
 }
 
@@ -251,13 +254,13 @@ h1, h2, h3 {
     left: 0;
     width: 100%;
     height: 12px;
-    background: rgba(240, 90, 43, 0.2);
+    background: rgba(240, 90, 43, 0.25);
     z-index: -1;
 }
 
 .hero-text {
     font-size: 1rem;
-    color: var(--gris-claro);
+    color: var(--gris-medio);
     line-height: 1.6;
     margin-bottom: 1.8rem;
 }
@@ -283,7 +286,7 @@ h1, h2, h3 {
 
 .stat {
     font-size: 0.8rem;
-    color: var(--gris-medio);
+    color: var(--gris-claro);
 }
 
 .hero-buttons {
@@ -315,13 +318,13 @@ h1, h2, h3 {
 
 .btn-secondary {
     background: transparent;
-    color: #E5E7EB;
+    color: var(--blanco);
     padding: 0.8rem 1.8rem;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
     transition: var(--transition);
-    border: 2px solid var(--gris-claro);
+    border: 2px solid var(--dark-border);
 }
 
 .btn-secondary:hover {
@@ -332,12 +335,12 @@ h1, h2, h3 {
 
 /* Hero Card */
 .hero-card {
-    background: var(--blanco);
+    background: var(--dark-surface);
     padding: 1.8rem;
     border-radius: 28px;
     box-shadow: var(--shadow-xl);
     text-align: center;
-    border: 1px solid var(--gris-borde);
+    border: 1px solid var(--dark-border);
 }
 
 .hero-card img {
@@ -357,6 +360,7 @@ h1, h2, h3 {
 .hero-card h3 {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
+    color: var(--blanco);
 }
 
 .hero-card p {
@@ -367,7 +371,7 @@ h1, h2, h3 {
 /* ===== PLATAFORMAS SECTION ===== */
 .platforms {
     padding: 5rem 0;
-    background: var(--blanco);
+    background: var(--dark-fondo);
 }
 
 .platforms-grid {
@@ -377,11 +381,11 @@ h1, h2, h3 {
 }
 
 .platform-card {
-    background: var(--gris-fondo);
+    background: var(--dark-surface);
     padding: 1.8rem;
     border-radius: 24px;
     transition: var(--transition);
-    border: 1px solid var(--gris-borde);
+    border: 1px solid var(--dark-border);
     text-align: center;
 }
 
@@ -393,7 +397,7 @@ h1, h2, h3 {
 
 .platform-card.featured {
     border: 2px solid var(--naranja-intenso);
-    background: linear-gradient(135deg, var(--blanco), var(--naranja-suave));
+    background: linear-gradient(135deg, var(--dark-surface), var(--naranja-suave));
 }
 
 .platform-card img {
@@ -419,6 +423,7 @@ h1, h2, h3 {
 .platform-card h3 {
     font-size: 1.15rem;
     margin-bottom: 0.5rem;
+    color: var(--blanco);
 }
 
 .platform-card p {
@@ -446,7 +451,7 @@ h1, h2, h3 {
 /* ===== RESEARCH4LIFE SECTION ===== */
 .research4life {
     padding: 5rem 0;
-    background: linear-gradient(135deg, var(--naranja-suave), var(--blanco));
+    background: var(--dark-surface);
 }
 
 .research-content {
@@ -454,16 +459,17 @@ h1, h2, h3 {
     grid-template-columns: 1fr auto;
     gap: 3rem;
     align-items: center;
-    background: var(--blanco);
+    background: var(--dark-surface-2);
     padding: 2.5rem;
     border-radius: 32px;
     box-shadow: var(--shadow-lg);
+    border: 1px solid var(--dark-border);
 }
 
 .research-text h2 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
-    color: var(--gris-oscuro);
+    color: var(--blanco);
 }
 
 .research-text p {
@@ -479,7 +485,7 @@ h1, h2, h3 {
 }
 
 .research-badges span {
-    background: var(--gris-fondo);
+    background: var(--dark-surface);
     padding: 0.5rem 1rem;
     border-radius: 40px;
     font-size: 0.8rem;
@@ -487,6 +493,8 @@ h1, h2, h3 {
     display: inline-flex;
     align-items: center;
     gap: 8px;
+    color: var(--gris-oscuro);
+    border: 1px solid var(--dark-border);
 }
 
 .research-badges span i {
@@ -495,7 +503,7 @@ h1, h2, h3 {
 
 .research-text small {
     font-size: 0.7rem;
-    color: var(--gris-medio);
+    color: var(--gris-claro);
 }
 
 .research-stats {
@@ -522,53 +530,10 @@ h1, h2, h3 {
     opacity: 0.9;
 }
 
-/* ===== COLECCIONES SECTION ===== */
-.collections {
-    padding: 5rem 0;
-    background: var(--blanco);
-}
-
-.collections-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-}
-
-.collection-card {
-    background: var(--gris-fondo);
-    padding: 1.5rem;
-    border-radius: 20px;
-    text-align: center;
-    transition: var(--transition);
-}
-
-.collection-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
-    background: var(--blanco);
-}
-
-.collection-card i {
-    font-size: 2rem;
-    color: var(--naranja-intenso);
-    margin-bottom: 0.8rem;
-}
-
-.collection-card h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.3rem;
-}
-
-.collection-card p {
-    font-size: 0.8rem;
-    color: var(--gris-medio);
-}
-
 /* ===== SERVICIOS SECTION ===== */
 .services {
     padding: 5rem 0;
-    background: var(--gris-fondo);
+    background: var(--dark-fondo);
 }
 
 .services-grid {
@@ -578,17 +543,19 @@ h1, h2, h3 {
 }
 
 .service-card {
-    background: var(--blanco);
+    background: var(--dark-surface);
     padding: 1.5rem;
     border-radius: 20px;
     text-align: center;
     transition: var(--transition);
     box-shadow: var(--shadow-sm);
+    border: 1px solid var(--dark-border);
 }
 
 .service-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
+    border-color: var(--naranja-claro);
 }
 
 .service-card i {
@@ -600,6 +567,7 @@ h1, h2, h3 {
 .service-card h3 {
     font-size: 1rem;
     margin-bottom: 0.5rem;
+    color: var(--blanco);
 }
 
 .service-card p {
@@ -610,7 +578,7 @@ h1, h2, h3 {
 /* ===== REQUISITOS SECTION ===== */
 .requirements {
     padding: 5rem 0;
-    background: var(--blanco);
+    background: var(--dark-surface);
 }
 
 .requirements-grid {
@@ -622,12 +590,12 @@ h1, h2, h3 {
 }
 
 .requirement-card {
-    background: var(--gris-fondo);
+    background: var(--dark-surface-2);
     padding: 2rem;
     border-radius: 24px;
     text-align: center;
     transition: var(--transition);
-    border: 1px solid var(--gris-borde);
+    border: 1px solid var(--dark-border);
 }
 
 .requirement-card:hover {
@@ -645,6 +613,7 @@ h1, h2, h3 {
 .requirement-card h3 {
     font-size: 1.3rem;
     margin-bottom: 1rem;
+    color: var(--blanco);
 }
 
 .requirement-card ul {
@@ -659,7 +628,7 @@ h1, h2, h3 {
 /* ===== CONTACTO SECTION ===== */
 .contact {
     padding: 5rem 0;
-    background: linear-gradient(135deg, var(--gris-fondo), var(--naranja-suave));
+    background: var(--dark-fondo);
 }
 
 .contact-grid {
@@ -672,6 +641,7 @@ h1, h2, h3 {
 .contact-info h2 {
     font-size: 2rem;
     margin-bottom: 0.75rem;
+    color: var(--blanco);
 }
 
 .contact-info > p {
@@ -700,12 +670,12 @@ h1, h2, h3 {
 }
 
 .contact-card {
-    background: var(--blanco);
+    background: var(--dark-surface);
     padding: 2rem;
     border-radius: 24px;
     text-align: center;
     box-shadow: var(--shadow-xl);
-    border: 1px solid var(--gris-borde);
+    border: 1px solid var(--dark-border);
 }
 
 .contact-card i {
@@ -717,6 +687,7 @@ h1, h2, h3 {
 .contact-card h3 {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
+    color: var(--blanco);
 }
 
 .contact-card p {
@@ -752,9 +723,10 @@ h1, h2, h3 {
 
 /* ===== FOOTER ===== */
 footer {
-    background: var(--gris-oscuro);
+    background: var(--dark-surface-2);
     color: white;
     padding: 3rem 0;
+    border-top: 1px solid var(--dark-border);
 }
 
 .footer-content {
@@ -777,7 +749,7 @@ footer {
 }
 
 .footer-content p {
-    color: var(--gris-claro);
+    color: var(--gris-medio);
     margin-bottom: 1.5rem;
     font-size: 0.85rem;
 }
@@ -791,7 +763,7 @@ footer {
 }
 
 .footer-links a {
-    color: var(--gris-claro);
+    color: var(--gris-medio);
     text-decoration: none;
     transition: var(--transition);
     font-size: 0.85rem;
@@ -803,7 +775,7 @@ footer {
 
 .copyright {
     font-size: 0.7rem;
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
 /* ===== BACK TO TOP BUTTON ===== */
@@ -893,13 +865,13 @@ footer {
         top: 70px;
         left: 0;
         right: 0;
-        background: white;
+        background: var(--dark-surface);
         flex-direction: column;
         padding: 1.5rem;
         text-align: center;
         box-shadow: var(--shadow-lg);
         gap: 1rem;
-        border-bottom: 1px solid var(--gris-borde);
+        border-bottom: 1px solid var(--dark-border);
     }
     
     .nav.active {
@@ -932,10 +904,6 @@ footer {
     
     .platforms-grid {
         grid-template-columns: 1fr;
-    }
-    
-    .collections-grid {
-        grid-template-columns: repeat(2, 1fr);
     }
     
     .services-grid {
@@ -987,10 +955,6 @@ footer {
     .btn-primary, .btn-secondary {
         padding: 0.6rem 1.2rem;
         font-size: 0.85rem;
-    }
-    
-    .collections-grid {
-        grid-template-columns: 1fr;
     }
     
     .platform-card {
