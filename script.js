@@ -3,7 +3,7 @@
  * BIBLIOTECA CARLOS SALAZAR MOSTAJO - UMSA
  * Landing Page de Alto Rendimiento
  * Diseño moderno naranja
- * Versión: 3.0 Definitiva
+ * Versión: 4.0 con Modales
  * ============================================
  */
 
@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initCounterAnimation();
     initBackToTop();
     initActiveNavHighlight();
+    initModals();  // NUEVO: Inicializar modales
     
     // Mensajes de consola
     consoleMessages();
@@ -117,8 +118,9 @@ function initSmoothScroll() {
 // 3. ANIMACIONES DE ENTRADA AL HACER SCROLL
 // ============================================
 function initScrollAnimations() {
+    // Excluir modales de la animación
     const animateElements = document.querySelectorAll(
-        '.platform-card, .collection-card, .service-card, .requirement-card, .research-content, .contact-card'
+        '.platform-card, .service-card, .requirement-card, .research-content, .contact-card'
     );
     
     if (animateElements.length === 0) return;
@@ -174,7 +176,6 @@ function initImageErrorHandler() {
     
     allImages.forEach(img => {
         img.addEventListener('error', function() {
-            // Si la imagen falla, usar placeholder con el color naranja
             const text = this.alt || 'Imagen';
             this.src = `https://placehold.co/80x80/F05A2B/FFFFFF?text=${encodeURIComponent(text.substring(0, 10))}`;
         });
@@ -197,7 +198,6 @@ function initCopyUrlButton() {
             await navigator.clipboard.writeText(currentUrl);
             showNotification('✅ ¡URL copiada al portapapeles!', 'success');
             
-            // Cambiar texto del botón temporalmente
             const originalText = copyBtn.textContent;
             copyBtn.textContent = '✅ ¡Copiado!';
             setTimeout(() => {
@@ -208,7 +208,6 @@ function initCopyUrlButton() {
         }
     });
     
-    // También hacer clickeable la URL
     if (qrUrlSpan) {
         qrUrlSpan.style.cursor = 'pointer';
         qrUrlSpan.addEventListener('click', () => {
@@ -223,7 +222,6 @@ function initCopyUrlButton() {
 // 7. EFECTO DE CARGA SUAVE DE LA PÁGINA
 // ============================================
 function initPageLoadEffect() {
-    // Ocultar body inicialmente
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.5s ease';
     
@@ -246,7 +244,6 @@ function initCustomTooltips() {
         let tooltip = null;
         
         link.addEventListener('mouseenter', (e) => {
-            // Solo mostrar tooltip en desktop
             if (window.innerWidth < 768) return;
             
             tooltipTimeout = setTimeout(() => {
@@ -334,7 +331,6 @@ function initCounterAnimation() {
 // 10. BOTÓN VOLVER ARRIBA (BACK TO TOP)
 // ============================================
 function initBackToTop() {
-    // Crear botón si no existe
     let backBtn = document.querySelector('.back-to-top');
     if (!backBtn) {
         backBtn = document.createElement('button');
@@ -378,7 +374,6 @@ function initBackToTop() {
         });
     });
     
-    // Hover effect
     backBtn.addEventListener('mouseenter', () => {
         backBtn.style.transform = 'translateY(-3px)';
         backBtn.style.background = '#e04a1a';
@@ -421,10 +416,76 @@ function initActiveNavHighlight() {
 }
 
 // ============================================
-// 12. NOTIFICACIONES EMERGENTES
+// 12. MODALES PARA SERVICIOS
+// ============================================
+
+// Función para abrir modal
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+// Función para cerrar modal
+function closeModal(modal) {
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+}
+
+// Inicializar modales
+function initModals() {
+    // Botones "Ver más" dentro de las tarjetas de servicio
+    const modalTriggers = document.querySelectorAll('.service-card .btn-modal');
+    
+    modalTriggers.forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const serviceCard = trigger.closest('.service-card');
+            const modalId = serviceCard ? serviceCard.getAttribute('data-modal') : null;
+            if (modalId) {
+                openModal(modalId);
+            }
+        });
+    });
+    
+    // Botones de cerrar (X)
+    const closeButtons = document.querySelectorAll('.modal-close');
+    closeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const modal = btn.closest('.modal');
+            if (modal) closeModal(modal);
+        });
+    });
+    
+    // Cerrar al hacer clic fuera del contenido
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal(modal);
+            }
+        });
+    });
+    
+    // Cerrar con tecla ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            const openModals = document.querySelectorAll('.modal[style*="display: flex"]');
+            openModals.forEach(modal => {
+                closeModal(modal);
+            });
+        }
+    });
+}
+
+// ============================================
+// 13. NOTIFICACIONES EMERGENTES
 // ============================================
 function showNotification(message, type = 'success') {
-    // Remover notificaciones existentes
     const oldNotification = document.querySelector('.custom-notification');
     if (oldNotification) oldNotification.remove();
     
@@ -457,7 +518,7 @@ function showNotification(message, type = 'success') {
 }
 
 // ============================================
-// 13. MENSAJES PERSONALIZADOS EN CONSOLA
+// 14. MENSAJES PERSONALIZADOS EN CONSOLA
 // ============================================
 function consoleMessages() {
     const currentUrl = window.location.href;
@@ -465,16 +526,16 @@ function consoleMessages() {
     console.log('%c╔════════════════════════════════════════════════════════════════╗', 'color: #F05A2B');
     console.log('%c║     🎨 BIBLIOTECA CARLOS SALAZAR MOSTAJO - UMSA                ║', 'color: #F05A2B');
     console.log('%c╠════════════════════════════════════════════════════════════════╣', 'color: #F05A2B');
-    console.log('%c║  📚 Landing Page de Alto Rendimiento                           ║', 'color: #FF8A4C');
+    console.log('%c║  📚 Landing Page con Modales                                   ║', 'color: #FF8A4C');
     console.log('%c║  🟠 Paleta naranja · Diseño moderno · Responsive               ║', 'color: #FF8A4C');
     console.log('%c║  🔗 URL: ' + currentUrl, 'color: #6B7280');
     console.log('%c║  📱 Escanea el QR para acceder desde tu celular                ║', 'color: #6B7280');
-    console.log('%c║  💡 Consejo: Usa el botón "Copiar URL" para compartir          ║', 'color: #6B7280');
+    console.log('%c║  💡 Haz clic en "Ver más" para más información de servicios    ║', 'color: #6B7280');
     console.log('%c╚════════════════════════════════════════════════════════════════╝', 'color: #F05A2B');
 }
 
 // ============================================
-// 14. ANIMACIONES CSS DINÁMICAS
+// 15. ANIMACIONES CSS DINÁMICAS
 // ============================================
 const dynamicStyles = document.createElement('style');
 dynamicStyles.textContent = `
@@ -500,6 +561,22 @@ dynamicStyles.textContent = `
         }
     }
     
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    @keyframes slideInUp {
+        from {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    
     @keyframes fadeInUp {
         from {
             opacity: 0;
@@ -512,12 +589,8 @@ dynamicStyles.textContent = `
     }
     
     @keyframes pulse {
-        0%, 100% {
-            transform: scale(1);
-        }
-        50% {
-            transform: scale(1.05);
-        }
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
     }
     
     /* Scrollbar personalizada naranja */
@@ -551,26 +624,26 @@ dynamicStyles.textContent = `
         color: white;
     }
     
-    /* Smooth scroll para toda la página */
+    /* Smooth scroll */
     html {
         scroll-behavior: smooth;
     }
     
-    /* Mejora de accesibilidad para focus */
+    /* Accesibilidad */
     a:focus, button:focus {
         outline: 2px solid #F05A2B;
         outline-offset: 3px;
     }
     
     /* Transiciones suaves */
-    .platform-card, .collection-card, .service-card {
+    .platform-card, .service-card {
         transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     }
 `;
 document.head.appendChild(dynamicStyles);
 
 // ============================================
-// 15. PREVENIR ENVÍO DE FORMULARIOS VACÍOS
+// 16. PREVENIR ENVÍO DE FORMULARIOS VACÍOS
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
     const forms = document.querySelectorAll('form');
@@ -601,13 +674,15 @@ document.addEventListener('DOMContentLoaded', () => {
 if (typeof window !== 'undefined') {
     window.bibliotecaScripts = {
         showNotification,
+        openModal,
+        closeModal,
         copyToClipboard: () => {
             const url = window.location.href;
             navigator.clipboard.writeText(url);
             showNotification('✅ URL copiada', 'success');
         },
-        version: '3.0'
+        version: '4.0'
     };
 }
 
-console.log('%c✅ Scripts de Biblioteca ART&DIS cargados correctamente | Versión 3.0', 'color: #10B981; font-weight: bold;');
+console.log('%c✅ Scripts de Biblioteca ART&DIS cargados correctamente | Versión 4.0 con Modales', 'color: #10B981; font-weight: bold;');
